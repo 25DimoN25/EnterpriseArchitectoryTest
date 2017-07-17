@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список групп</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/styles.css"/>
+    <script src="/script.js"/>
+</head>
+<body>
+
+    <ol>
+        <li th:each="facultyEntry : ${facultiesSpeciality.entrySet()}">
+            <h2 th:text="${facultyEntry.key.name}"/>
+            <ol>
+                <li th:each="specialityEntry : ${facultyEntry.value.entrySet()}">
+                    <b th:text="${specialityEntry.key.name}"/>
+                    <table border="1">
+                        <tr>
+                            <th>Курс</th>
+                            <th>Отдел</th>
+                            <th>Очное</th>
+                            <th>Дата создания</th>
+                        </tr>
+                        <tr th:each="group : ${specialityEntry.value}" class="group" th:onclick="'openGroup(' + ${group.id} + ')'">
+                            <td th:text="${group.course}"/>
+                            <td th:text="${group.type.name}"/>
+                            <td th:text="${group.fulltime} ? 'Да' : 'Нет'"/>
+                            <td th:text="${group.creationDate}"/>
+                        </tr>
+                    </table>
+                    <br/>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+
+</body>
+</html>

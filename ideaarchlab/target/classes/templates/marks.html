@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${student.lastName} + ' ' + ${student.firstName}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/styles.css"/>
+    <script src="/script.js"/>
+</head>
+<body>
+    <h3 th:text="${student.lastName} + ' ' + ${student.firstName} + ' (отметки):'"/>
+    <table border="1">
+        <tr>
+            <th>Дисциплина</th>
+            <th>Отметка</th>
+            <th>Преподаватель</th>
+        </tr>
+        <tr th:each="mark : ${marks}">
+            <td th:text="${mark.discipline.name}"/>
+            <td th:text="${mark.mark} eq 5 ? 'Отлично' : (${mark.mark} eq 4 ? 'Хорошо' : 'Удовлетворительно')"/>
+            <td th:text="${mark.teacher.lastName} + ' ' + ${mark.teacher.firstName}"/>
+        </tr>
+    </table>
+
+</body>
+</html>

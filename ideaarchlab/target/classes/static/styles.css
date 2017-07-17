@@ -1,0 +1,32 @@
+.group {
+    cursor: pointer;
+}
+
+.group:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.studentOn, .studentOff {
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.studentOn {
+    background: lime;
+}
+
+.studentOff {
+    background: red;
+}
+
+li > a, li > a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    font-weight: bold;
+}
